@@ -12,17 +12,71 @@
 
 
     <script>
-        let listaNomi = ["Franco_", "Gennaro_", "Valerio_", "Giulia_", "Eugenio_", "Carlo_"]
 
-        for (let i = 0; i < listaNomi.length; i++) {
-            console.log(listaNomi);
-        }
+        let contoCorr = 1500;
+        let operazione;
 
-        for (let i = 0; i < listaNomi.length; i++) {
-            for (let j = 0; j < listaNomi.length; j++) {
-                console.log(listaNomi[i][j]);
+
+        while (operazione != 4) {
+
+            let operazione = parseInt(prompt("Buonasera, benvenuto nel terminale della banca.\n\nPremi 1 per fare un  bonifico \n\nPremi 2 per fare un  prelievo\n\nPremi 3 per visualizzare il tuo saldo  \n\n Premi 4 per chiudere lo sportello"))
+            let importo;
+            switch (operazione) {
+                case 1:
+
+                    importo = parseInt(prompt("Inserisci l' importo dell' operazione: "))
+                    if (contoCorr - importo >= 0) {
+
+                        let destinatario = prompt("Inserisci l IBAN del destinatario: ")
+                        contoCorr = contoCorr - importo;
+                        alert("il bonifico è andato a buon fine a queste coordinate : " + destinatario + " torna a trovarci ")
+                        alert("il saldo attuale è adesso di " + contoCorr + "euro")
+                    }
+                    else {
+                        alert("Saldo insufficiente")
+                    }
+
+                    break;
+
+
+                case 2:
+                    importo = parseInt(prompt("Inserisci l' importo dell' operazione: "))
+                    if (contoCorr - importo >= 0) {
+                        contoCorr = contoCorr - importo;
+
+                        alert("il prelievo è andato a buon fine!")
+                        alert("il saldo attuale è adesso di " + contoCorr + "euro")
+                    }
+                    else {
+                        alert("saldo insufficiente")
+                    }
+                    break;
+
+
+                case 3:
+                    alert("Il tuo saldo attuale è : " + contoCorr + "euro")
+                    break;
+
+                case 4:
+                    alert("Esecuzione Terminata, torna a trovarci")
+                    break;
+
+
+                default:
+                    alert("l operazione non è supportata")
+                    break;
+
             }
+
+
+
         }
+
+
+
+
+
+
 
     </script>
 </body>
